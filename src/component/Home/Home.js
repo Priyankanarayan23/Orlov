@@ -4,7 +4,7 @@ import "./Home.css";
 import Product from "./Product.js";
 
 const product={
-    name:"Blue Tshirt",images:[{url:"https://i.pinimg.com/564x/0a/b9/e9/0ab9e93635d92f1defa45108d69b9271.jpg"}],price:"Rs.15,000",_id:"pri",
+    name:"Black Snake Tshirt",images:[{url:"https://i.pinimg.com/564x/0a/b9/e9/0ab9e93635d92f1defa45108d69b9271.jpg"}],price:"Rs.15,000",_id:"pri",
 };
 
 const Home = () => {
