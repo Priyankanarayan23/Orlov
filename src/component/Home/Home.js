@@ -20,7 +20,29 @@ const Home = () => {
     <div className="container" id="container">
 
         <Product product={product}/>
+        <Product product={product}/>
+        <Product product={product}/>
+        <Product product={product}/>
+        <Product product={product}/>
+      
     </div>
+   <div className="viewbutton"> <a href="#container">
+            <button>View More</button>
+        </a></div>
+
+    <h2 className="homeHeading">BEST SELLING</h2>
+    <div className="container" id="container">
+
+        <Product product={product}/>
+        <Product product={product}/>
+        <Product product={product}/>
+        <Product product={product}/>
+        <Product product={product}/>
+       
+    </div>
+    <div className="viewbutton"> <a href="#container">
+            <button>View More</button>
+        </a></div>
   </Fragment>;
 };
 
