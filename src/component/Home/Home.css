@@ -98,7 +98,11 @@ margin-bottom: 0;
     box-shadow: 0 0 5px rgba(15,15,0.26);
     transform: translateY(-1vmax);
 }
-
+.viewbutton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .viewbutton>a>button{
     margin-bottom: 5vmax;
     cursor: pointer;

@@ -6,15 +6,15 @@ import "./Footer.css";
 const Footer = () => {
   return (
 <footer id="footer">
-<div class="leftFooter">
+<div className="leftFooter">
     <h4>Follow Us</h4>
     <a href="https://instagram.com/orlov.co">Instagram</a>
 </div>
 
-<div class="midFooter">
+<div className="midFooter">
     <p>Clothing by ORLOV</p>
 </div>
-<div class="rightFooter">
+<div className="rightFooter">
 
     <h4>&copy; 2023,ORLOV</h4>
 </div>
