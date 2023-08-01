@@ -4,7 +4,7 @@ import logo from "../../../images/Asset 3@3x.png";
 const options={
   burgerColor:"#050000",
   burgerColorHover:"darkgrey",
-  logo:{logo} ,
+  logo,
   logowidth:"20vmax" ,
   navColor1:"white",
   logoHoverSize:"10px",
@@ -35,10 +35,7 @@ profileIconHover:"grey",
 cartIconMargin:"1vmax",
 }
 const Header = () => {
-  return (
-  <ReactNavbar 
-  
-  />);
+  return <ReactNavbar{...options} />;
 }
 
 export default Header; 
