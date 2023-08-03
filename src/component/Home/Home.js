@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react';
-import { CgMouse } from "react-icons/cg";
+import MouseIcon from '@mui/icons-material/Mouse';
 import "./Home.css";
 import Product from "./Product.js";
 import MetaData from '../layout/MetaData';
+import {Button} from '@mui/material';
 
 const product={
     name:"Black Snake Tshirt",images:[{url:"https://i.pinimg.com/564x/0a/b9/e9/0ab9e93635d92f1defa45108d69b9271.jpg"}],price:"Rs.15,000",_id:"pri",
@@ -14,7 +15,7 @@ const Home = () => {
     <div className="Banner">
         <h1>Welcome to ORLOV</h1>
         <a href="#container">
-            <button>Scroll <CgMouse /></button>
+            <Button variant="contained" endIcon={<MouseIcon/>} > Scroll</Button>
         </a>
     </div>
 
@@ -25,7 +26,7 @@ const Home = () => {
         <Product product={product}/>
         <Product product={product}/>
         <Product product={product}/>
-        <Product product={product}/>
+       
       
     </div>
    <div className="viewbutton"> <a href="#container">
@@ -39,7 +40,7 @@ const Home = () => {
         <Product product={product}/>
         <Product product={product}/>
         <Product product={product}/>
-        <Product product={product}/>
+        
        
     </div>
     <div className="viewbutton"> <a href="#container">

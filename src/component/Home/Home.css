@@ -8,6 +8,7 @@
     align-items: center;
     justify-content: center;
 color: white;
+margin-top: 0;
 }
 
 .Banner h1{
@@ -18,7 +19,7 @@ color: white;
 .Banner > a>button{
     margin-bottom: 5vmax;
     cursor: pointer;
-    background-color: white;
+    background-color: black;
     border: 1px solid white;
     border-radius: 0;
     padding: 1vmax;
@@ -27,7 +28,7 @@ color: white;
     font:500 1vmax "Roboto";
 }
 .Banner > a >button:hover{
-background-color: black;
+background-color: rgb(59, 52, 52);
 color: azure;
 }
 .Banner::after{
@@ -44,7 +45,8 @@ color: azure;
 
 .homeHeading{
     text-align:start;
-    margin-left: 2.5vmax;
+    margin-left: 7vmax;
+    margin-top: 1vmax;
     font-size: 2vmax;
     text-decoration: underline;
 }
@@ -54,7 +56,7 @@ color: azure;
     margin: 0.5vmax auto;
    /*width:80vw;*/
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
     max-width: 100%;
 }
 .productCard{
@@ -72,8 +74,9 @@ color: azure;
 }
 
 .productCard >img {
-    width:14vmax;
+    width:18vmax;
     border-radius: 25px;
+    margin:auto;
 
 }
 
@@ -98,7 +101,11 @@ margin-bottom: 0;
     box-shadow: 0 0 5px rgba(15,15,0.26);
     transform: translateY(-1vmax);
 }
-
+.viewbutton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .viewbutton>a>button{
     margin-bottom: 5vmax;
     cursor: pointer;

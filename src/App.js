@@ -1,5 +1,5 @@
 import './App.css';
-import Header from "./component/layout/Header/Header.js";
+
 import { BrowserRouter as Router,Route } from "react-router-dom";
 import webFont from "webfontloader";
  import React from "react";
