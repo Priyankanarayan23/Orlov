@@ -22,7 +22,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 
-const drawerWidth = 240;
+const drawerWidth = 300;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
@@ -82,11 +82,11 @@ export default function DrawerX() {
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex',height:'60px' }}>
       <CssBaseline />
       <AppBar position="fixed" open={open} sx={{background:'black'}}>
         <Toolbar>
-          <Typography  noWrap sx={{ flexGrow: 1 , fontSize:'20px' ,marginLeft:'30px' }} component="div">
+          <Typography  noWrap sx={{ flexGrow: 1 , fontSize:'25px' ,marginLeft:'30px',fontweight:'bold' }} component="div">
             ORLOV
           </Typography>
           <IconButton
@@ -136,7 +136,7 @@ export default function DrawerX() {
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
-          <Typography> Menu </Typography>
+          <Typography sx={{fontSize:'25px'}}> Menu </Typography>
         </DrawerHeader>
         <Divider />
         <List>
