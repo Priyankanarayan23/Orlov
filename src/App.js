@@ -6,6 +6,8 @@ import webFont from "webfontloader";
  import Footer from "./component/layout/Footer/Footer.js";
  import Home from "./component/Home/Home.js";
 import DrawerX from './component/layout/Header/DrawerX';
+import Loader from './component/layout/Loader/Loaderx.js';
+
 
 function App() {
 
