@@ -14,10 +14,13 @@ const product={
 
 const Home = () => {
     const dispatch =useDispatch();
+    const {loading,error,products,productsCount}=useSelector(
+       (state)=>state.products);
 
     useEffect (() =>{
 dispatch(getProduct());
     },[dispatch]);
+    
   return <Fragment>
     <MetaData title="ORLOV" />
     <div className="Banner">
@@ -30,10 +33,7 @@ dispatch(getProduct());
     <h2 className="homeHeading">TRENDING</h2>
     <div className="container" id="container">
 
-        <Product product={product}/>
-        <Product product={product}/>
-        <Product product={product}/>
-        <Product product={product}/>
+    {products && products.map((product) => <Product product={product}/>)}
    
       
     </div>
