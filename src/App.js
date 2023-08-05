@@ -7,6 +7,7 @@ import webFont from "webfontloader";
  import Home from "./component/Home/Home.js";
 import DrawerX from './component/layout/Header/DrawerX';
 import Loader from './component/layout/Loader/Loaderx.js';
+import ProductDetails from "./component/Product/ProductDetails.js"
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
   <Router>
     <DrawerX/>   
     <Route exact path="/" component={Home}/>
+    <Route exact path="/product/:id" component={ProductDetails}/>
     <Footer />
     
   </Router> 

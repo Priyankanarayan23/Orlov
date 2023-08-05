@@ -15,16 +15,16 @@ const productSchema=new mongoose.Schema({
         required:[true,"Please enter the price"]
         ,maxLength:[8,"Price cannot exceed 8 figure"]
     },
-    images:{
-        public_id:{
+    images:
+        [{public_id:{
             type:String,
-            required:true
+            required:true,
         },
         url:{
             type:String,
-            required:true
-        }
-    },
+            required:true,
+        }}]
+    ,
     category:{
         type:String,
         required:[true,"Please Enter Product Category"]   
