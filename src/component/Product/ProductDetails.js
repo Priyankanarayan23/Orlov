@@ -2,20 +2,29 @@ import React,{Fragment, useEffect} from 'react';
 import Carousel from "react-material-ui-carousel";
 import "./ProductDetails.css";
 import { UseSelector,useDispatch, useSelector } from 'react-redux';
-import { getProductDetails } from '../../actions/productAction';
+import { clearErrors, getProductDetails } from '../../actions/productAction';
+import Loader from "../layout/Loader/Loaderx";
+import {useAlert} from "react-alert";
 
 const ProductDetails = ({match}) => {
 
     const dispatch= useDispatch();
+    const alert =useAlert();
+
     const {product,loading,error}=useSelector((state)=>state.productDetails);
 
     useEffect(()=>{
+      if(error){
+       alert.error(error);
+       dispatch(clearErrors());
+      }
  dispatch(getProductDetails(match.params.id));
-    },[dispatch,match.params.id]);
+    },[dispatch,match.params.id,error,alert]);
 
 
   return (
-    <Fragment>
+   <Fragment>
+    {loading? <Loader/> : ( <Fragment>
         <div className="ProductDetails">
 <div>
     <Carousel>
@@ -43,7 +52,7 @@ alt={`${i}Slide`}
                    <input value="1" type="number" />
                    <button>+</button>
                    </div>{""}
-                   <button>Add to cart</button>
+                   <button>ADD TO CART</button>
                   </div> 
                   <p>
                   Status: {" "}
@@ -62,7 +71,8 @@ alt={`${i}Slide`}
 
 </div>
  </div>
-    </Fragment>
+    </Fragment>)}
+   </Fragment>
   );
 };
 
