@@ -1,6 +1,6 @@
 import React, { Fragment,useEffect } from 'react';
 import "./Home.css";
-import Product from "./ProductCard.js";
+import ProductCard from "./ProductCard.js";
 import MetaData from '../layout/MetaData';
 import MouseIcon from '@mui/icons-material/Mouse';
 import {Button} from '@mui/material';
@@ -41,7 +41,7 @@ dispatch(getProduct());
     <h2 className="homeHeading">TRENDING</h2>
     <div className="container" id="container">
 
-    {products && products.map((product) => <Product product={product}/>)}
+    {products && products.map((product) => <ProductCard product={product}/>)}
    
       
     </div>
@@ -54,7 +54,7 @@ dispatch(getProduct());
 
      
         
-    {products && products.map((product) => <Product product={product}/>)}
+    {products && products.map((product) => <ProductCard product={product}/>)}
        
     </div>
     <div className="viewbutton"> <a href="#container">

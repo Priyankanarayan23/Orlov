@@ -1,40 +1,31 @@
 import React,{Fragment, useEffect} from 'react';
 import Carousel from "react-material-ui-carousel";
 import "./ProductDetails.css";
-import { UseSelector,useDispatch, useSelector } from 'react-redux';
-import { clearErrors, getProductDetails } from '../../actions/productAction';
-import Loader from "../layout/Loader/Loaderx";
-import {useAlert} from "react-alert";
+import { useDispatch, useSelector } from 'react-redux';
+import { getProductDetails } from '../../actions/productAction';
 
 const ProductDetails = ({match}) => {
 
     const dispatch= useDispatch();
-    const alert =useAlert();
-
     const {product,loading,error}=useSelector((state)=>state.productDetails);
 
     useEffect(()=>{
-      if(error){
-       alert.error(error);
-       dispatch(clearErrors());
-      }
  dispatch(getProductDetails(match.params.id));
-    },[dispatch,match.params.id,error,alert]);
+    },[dispatch,match.params.id]);
 
 
   return (
-   <Fragment>
-    {loading? <Loader/> : ( <Fragment>
+    <Fragment>
         <div className="ProductDetails">
 <div>
     <Carousel>
         {product.images && 
-        product.images.map((i,item)=>(
-<img className="CarouselImage"
-key={item.url}
-src={item.url}
-alt={`${i}Slide`}
-/>
+        product.images.map((item,i)=>(
+              <img className='CarouselImage'
+              key={i}
+              src={item.url}
+              alt={`${i}Slide`}
+              />
         ))}
     </Carousel>
 </div>
@@ -52,6 +43,12 @@ alt={`${i}Slide`}
                    <input value="1" type="number" />
                    <button>+</button>
                    </div>{""}
+                   <select name="Size" id="size">
+                      <option value="SMALL">S</option>
+                      <option value="MEDIUM">M</option>
+                      <option value="LARGE">L</option>
+                      <option value="X LARGE">XL</option>
+                  </select>
                    <button>ADD TO CART</button>
                   </div> 
                   <p>
@@ -71,8 +68,7 @@ alt={`${i}Slide`}
 
 </div>
  </div>
-    </Fragment>)}
-   </Fragment>
+    </Fragment>
   );
 };
 
