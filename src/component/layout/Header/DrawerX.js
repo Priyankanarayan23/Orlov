@@ -141,7 +141,7 @@ export default function DrawerX() {
         <Divider />
         <List>
           {['Shirts', 'Tshirts', 'Cargos', 'Hoodies' ,'Shorts', 'Denims'].map((text, index) => (
-            <ListItem key={text} disablePadding>
+            <ListItem key={text} sx={{padding:'4px',marginLeft:'4px'}}>
               <ListItemButton>
                 
                 <ListItemText primary={text} />
@@ -152,7 +152,7 @@ export default function DrawerX() {
         <Divider />
         <List>
           {['Account', 'Contact'].map((text, index) => (
-            <ListItem key={text} disablePadding>
+            <ListItem key={text} sx={{padding:'4px',marginLeft:'4px'}}>
               <ListItemButton>
                 <ListItemIcon>
                   {index % 2 === 0 ? <AccountCircleIcon/> : <MailIcon />}

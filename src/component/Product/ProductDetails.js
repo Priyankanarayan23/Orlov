@@ -3,6 +3,7 @@ import Carousel from "react-material-ui-carousel";
 import "./ProductDetails.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductDetails } from '../../actions/productAction';
+import MetaData from '../layout/MetaData';
 
 const ProductDetails = ({match}) => {
 
@@ -16,6 +17,7 @@ const ProductDetails = ({match}) => {
 
   return (
     <Fragment>
+        <MetaData title={`${product.name } : ORLOV`}/>
         <div className="ProductDetails">
 <div>
     <Carousel>
