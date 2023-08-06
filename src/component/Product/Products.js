@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect ,useState} from 'react';
 import "./Products.css";
 import { useSelector, useDispatch } from "react-redux";
 import { clearErrors, getProduct } from "../../actions/productAction";
@@ -8,18 +8,24 @@ import Pagination from "react-js-pagination";
 
 const Products = ({match}) => {
 const dispatch =useDispatch();
+const [currentPage, setCurrentPage] = useState(1);
 
-const {products,loading,error,productsCount}=useSelector(
+const {products,loading,error,productsCount,resultPerPage}=useSelector(
     (state)=> state.products
 );
 const keyword = match.params.keyword;
+
+const setCurrentPageNo = (e) => {
+  setCurrentPage(e);
+};
+
 useEffect (()=>{
     dispatch(getProduct(keyword));
 },[dispatch,keyword]);
 
 
   return <Fragment>
-{loading?<Loader/> :
+{loading?<Loader/> : 
  <Fragment>
      <h2 className="productsHeading">PRODUCTS</h2>
 
@@ -31,7 +37,22 @@ useEffect (()=>{
     ))}
 </div>
 
-
+<div className="paginationBox">
+              <Pagination
+                activePage={currentPage}
+                itemsCountPerPage={resultPerPage}
+                totalItemsCount={productsCount}
+                onChange={setCurrentPageNo}
+                nextPageText="Next"
+                prevPageText="Prev"
+                firstPageText="1st"
+                lastPageText="Last"
+                itemClass="page-item"
+                linkClass="page-link"
+                activeClass="pageItemActive"
+                activeLinkClass="pageLinkActive"
+              />
+            </div>
 
     
     </Fragment>
