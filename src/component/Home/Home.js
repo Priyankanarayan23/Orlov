@@ -45,7 +45,7 @@ dispatch(getProduct());
    
       
     </div>
-   <div className="viewbutton"> <a href="#container">
+   <div className="viewbutton"> <a href="/products">
             <button>View More</button>
         </a></div>
 
@@ -57,7 +57,7 @@ dispatch(getProduct());
     {products && products.map((product) => <ProductCard product={product}/>)}
        
     </div>
-    <div className="viewbutton"> <a href="#container">
+    <div className="viewbutton"> <a href="/products">
             <button>View More</button>
         </a></div>
   </Fragment> )};

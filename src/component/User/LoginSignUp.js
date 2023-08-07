@@ -161,7 +161,7 @@ setUser({...user,[e.target.name]:e.target.value});
                     onChange={registerDataChange}
                   />
                 </div>
-                <input type="submit" value="Register" className="signUpBtn" />
+                <input type="submit" value="Signup" className="signUpBtn" />
               </form>
 
             </div>

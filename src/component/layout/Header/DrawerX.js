@@ -16,11 +16,12 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
+// import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import {Link} from 'react-router-dom';
 
 const drawerWidth = 300;
 
@@ -86,14 +87,15 @@ export default function DrawerX() {
       <CssBaseline />
       <AppBar position="fixed" open={open} sx={{background:'black'}}>
         <Toolbar>
-          <Typography  noWrap sx={{ flexGrow: 1 , fontSize:'25px' ,marginLeft:'30px',fontweight:'bold' }} component="div">
+          <Typography  noWrap sx={{ flexGrow: 1 , fontSize:'25px' ,marginLeft:'30px',fontweight:'bold' ,textDecoration:'none',boxShadow:'none',color:'white'}} component={Link} to="/">
             ORLOV
           </Typography>
           <IconButton
           color="inherit"
             aria-label="open drawer"
             edge="start"
-           
+           component={Link}
+           to="/search"
             sx={{ ...(open && { display: 'none'}) }}>
             <SearchIcon/>
           </IconButton>
@@ -140,6 +142,11 @@ export default function DrawerX() {
         </DrawerHeader>
         <Divider />
         <List>
+          <ListItem sx={{padding:'4px',marginLeft:'4px'}}>
+            <ListItemButton component={Link} to="/products">
+              <ListItemText primary={'All Products'}/>
+            </ListItemButton>
+          </ListItem>
           {['Shirts', 'Tshirts', 'Cargos', 'Hoodies' ,'Shorts', 'Denims'].map((text, index) => (
             <ListItem key={text} sx={{padding:'4px',marginLeft:'4px'}}>
               <ListItemButton>
@@ -153,7 +160,7 @@ export default function DrawerX() {
         <List>
           {['Account', 'Contact'].map((text, index) => (
             <ListItem key={text} sx={{padding:'4px',marginLeft:'4px'}}>
-              <ListItemButton>
+              <ListItemButton component={Link} to={index%2===0?"/login":"/contact"}>
                 <ListItemIcon>
                   {index % 2 === 0 ? <AccountCircleIcon/> : <MailIcon />}
                 </ListItemIcon>
