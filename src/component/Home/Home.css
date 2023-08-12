@@ -43,14 +43,16 @@ color: azure;
     max-width:100%;
 }
 
+
 .homeHeading{
     text-align:start;
     margin-left: 9vmax;
     margin-top:5vmax;
     margin-bottom: 0.2vmax;
     font-size: 2vmax;
-    color: grey;
+    color: rgb(17, 17, 17);
 }
+
 
 .container{
     display:flex;  
@@ -127,11 +129,20 @@ margin-bottom: 0;
         color: azure;}
 
 @media screen and (max-width:600px){
+
+    .Banner > a>button{
+        font:400 1.4vmax "Roboto"; 
+    }
+    
     .productCard >p{
         font-size: 1.7vmax;
     }
 
     .productCard >span{
         font-size: 1.5vmax;
+    }
+
+    .viewbutton>a>button{
+        font:400 1.4vmax "Roboto";
     }
 }

@@ -38,7 +38,7 @@ dispatch(getProduct());
         </a>
     </div>
 
-    <h2 className="homeHeading">TRENDING</h2>
+    <h2 className="homeHeading">FEATURED PRODUCTS</h2>
     <div className="container" id="container">
 
     {products && products.map((product) => <ProductCard product={product}/>)}
@@ -49,17 +49,7 @@ dispatch(getProduct());
             <button>View More</button>
         </a></div>
 
-    <h2 className="homeHeading">BEST SELLING</h2>
-    <div className="container" id="container">
-
-     
-        
-    {products && products.map((product) => <ProductCard product={product}/>)}
-       
-    </div>
-    <div className="viewbutton"> <a href="/products">
-            <button>View More</button>
-        </a></div>
+   
   </Fragment> )};
     </Fragment>
       );

@@ -34,11 +34,12 @@ const ProductDetails = ({match}) => {
 <div>
 <div className="detailsBlock-1">
 <h2>{product.name}</h2>
-      <p>Product # {product._id}</p>      
+<h1>{`₹${product.price}`}</h1>
+      
 </div >
 
 <div className="detailsBlock-3">
-                <h1>{`₹${product.price}`}</h1>
+               
                 <div className="detailsBlock-3-1">
                   <div className="detailsBlock-3-1-1">
                    <button>-</button>
@@ -52,6 +53,7 @@ const ProductDetails = ({match}) => {
                       <option value="X LARGE">XL</option>
                   </select>
                    <button>ADD TO CART</button>
+                   <button>BUY NOW</button>
                   </div> 
                   <p>
                   Status: {" "}

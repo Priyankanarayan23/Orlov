@@ -1,4 +1,6 @@
 import * as React from 'react';
+import {useState ,useEffect} from 'react';
+import { useAlert } from "react-alert";
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -22,6 +24,8 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import {Link} from 'react-router-dom';
+import { clearErrors, getProduct } from "../../../actions/productAction";
+import { useSelector, useDispatch } from "react-redux";
 
 const drawerWidth = 300;
 
@@ -81,21 +85,48 @@ export default function DrawerX() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  const [category,setCategory]=useState("");
+  
+    const dispatch =useDispatch();
+    
+    const alert = useAlert();
+    const [currentPage, setCurrentPage] = useState(1);
+    
+    
+    const {products,loading,error,productsCount,resultPerPage}=useSelector(
+        (state)=> state.products
+    );
+  
+  const setCurrentPageNo = (e) => {
+    setCurrentPage(e);
+  };
+  
+  useEffect (()=>{
+    if (error) {
+      alert.error(error);
+      dispatch(clearErrors());
+    }
+  
+      dispatch(getProduct(currentPage,category));
+  },[dispatch,currentPage,alert,error,category]);
 
   return (
+    
     <Box sx={{ display: 'flex',height:'60px' }}>
       <CssBaseline />
       <AppBar position="fixed" open={open} sx={{background:'black'}}>
         <Toolbar>
-          <Typography  noWrap sx={{ flexGrow: 1 , fontSize:'25px' ,marginLeft:'30px',fontweight:'bold' ,textDecoration:'none',boxShadow:'none',color:'white'}} component={Link} to="/">
+          <Typography  component={Link}
+          to="/" noWrap sx={{ flexGrow: 1 ,color:'white', fontSize:'25px' ,marginLeft:'30px',fontweight:'bold' , textDecoration: "none",
+          boxShadow: "none"}} >
             ORLOV
           </Typography>
           <IconButton
           color="inherit"
             aria-label="open drawer"
             edge="start"
-           component={Link}
-           to="/search"
+            component={Link}
+            to="/search"
             sx={{ ...(open && { display: 'none'}) }}>
             <SearchIcon/>
           </IconButton>
@@ -145,13 +176,13 @@ export default function DrawerX() {
           <ListItem sx={{padding:'4px',marginLeft:'4px'}}>
             <ListItemButton component={Link} to="/products">
               <ListItemText primary={'All Products'}/>
-            </ListItemButton>
+           </ListItemButton>
           </ListItem>
-          {['Shirts', 'Tshirts', 'Cargos', 'Hoodies' ,'Shorts', 'Denims'].map((text, index) => (
+          {['TShirt', 'Shirts', 'Cargo', 'Hoodie' , 'Denim'].map((text, index) => (
             <ListItem key={text} sx={{padding:'4px',marginLeft:'4px'}}>
-              <ListItemButton>
+              <ListItemButton component={Link} to={`/products/${text}`}>
                 
-                <ListItemText primary={text} />
+                <ListItemText primary={`${text}s`} />
               </ListItemButton>
             </ListItem>
           ))}
