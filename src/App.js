@@ -1,5 +1,5 @@
 import './App.css';
-// import Header from "./component/layout/Header/Header.js";
+
 import { BrowserRouter as Router,Route } from "react-router-dom";
 import webFont from "webfontloader";
  import React from "react";
@@ -11,6 +11,10 @@ import ProductDetails from "./component/Product/ProductDetails.js";
 import Products from "./component/Product/Products.js";
 import Search from "./component/Product/Search.js";
 import LoginSignUp from './component/User/LoginSignUp';
+import Cart from "./component/Cart/Cart.js";
+import Contact from './component/layout/Contact';
+import ConfirmOrder from './component/Cart/ConfirmOrder';
+import ProtectedRoute from "./component/Route/ProtectedRoute";
 
 
 
@@ -34,7 +38,9 @@ function App() {
     <Route path="/products/:keyword" component={Products}/>
     <Route exact path="/search" component={Search}/>
     <Route exact path="/login" component={LoginSignUp}/>
-  
+    <Route exact path="/cart" component={Cart}/>
+    <Route exact path="/contact" component={Contact} />
+    <Route exact path="/order/confirm" component={ConfirmOrder} />
 
     <Footer />
     

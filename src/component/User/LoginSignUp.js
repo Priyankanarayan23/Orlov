@@ -7,10 +7,19 @@ import LockOpenIcon from "@material-ui/icons/LockOpen";
 import FaceIcon from "@material-ui/icons/Face";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login, register } from "../../actions/userAction";
+import { useAlert } from "react-alert";
 
 
+const LoginSignUp = ({history}) => {
 
-const LoginSignUp = () => {
+  const dispatch = useDispatch();
+  const alert = useAlert();
+
+  const { error, loading, isAuthenticated } = useSelector(
+    (state) => state.user
+  );
+
+
     const loginTab = useRef(null);
     const registerTab = useRef(null);
     const switcherTab = useRef(null);
@@ -29,8 +38,9 @@ const LoginSignUp = () => {
       const [avatar, setAvatar] = useState();
       const [avatarPreview, setAvatarPreview] = useState("/Profile.png");
 
-    const loginSubmit = () => {
-        console.log(" login Form Submitted");
+    const loginSubmit = (e) => {
+      e.preventDefault();
+        dispatch(login(loginEmail,loginPassword));
       };
 
       const registerSubmit = (e) => {
@@ -63,6 +73,19 @@ const LoginSignUp = () => {
 setUser({...user,[e.target.name]:e.target.value});
         }};
 
+        useEffect(() => {
+          if (error) {
+            alert.error(error);
+            dispatch(clearErrors());
+          }
+
+          
+    if (isAuthenticated) {
+      history.push("/account");
+    }
+      
+        }, [dispatch, error, alert,history,isAuthenticated]);
+
     const switchTabs = (e, tab) => {
         if (tab === "login") {
           switcherTab.current.classList.add("shiftToNeutral");
@@ -82,6 +105,7 @@ setUser({...user,[e.target.name]:e.target.value});
 
   return (    
         <Fragment>
+          {loading? <Loader/>:<Fragment>
           <div className="LoginSignUpContainer">
             <div className="LoginSignUpBox">
               <div>
@@ -170,6 +194,7 @@ setUser({...user,[e.target.name]:e.target.value});
 
             </div>
           </div>
+        </Fragment>}
         </Fragment>
       );
     };
